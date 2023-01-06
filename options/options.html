@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Enhanced Reply Headers for Thunderbird</title>
+		<link rel="stylesheet" href="options.css" type="text/css"/>
+	</head>
+	<body>
+		<div class="optionstabs">
+			<input id="tab1" name="tabs" type="radio" checked/>
+			<label class="panellabel" for="tab1">Header Settings</label>
+			<div class="panel" id="headerFields">
+				<p id="headerDisplayField"></p>
+				<div id="settingsWrapper">
+					<div class="panelColumn">
+						<fieldset id="fromSettings">
+							<legend>From</legend>
+							<div class="displaystyle" id="displayFrom">
+								<p></p>
+							</div>
+							<div class="optionfield" id="headerStyleFrom">
+								<div class="optiongroup">
+									<input type="radio" id="fromOption0" name="headerFrom" value="0"/>
+									<label for="fromOption0">Thunderbird</label>
+								</div>
+								<div class="optiongroup">
+									<input type="radio" id="fromOption1" name="headerFrom" value="1"/>
+									<label for="fromOption1">Outlook</label>
+								</div>
+								<div class="optiongroup">
+									<input type="radio" id="fromOption2" name="headerFrom" value="2"/>
+									<label for="fromOption2">Email Address</label>
+								</div>
+								<div class="optiongroup">
+									<input type="radio" id="fromOption3" name="headerFrom" value="3"/>
+									<label for="fromOption3">Name</label>
+									<div class="tooltip">
+										?
+										<p>Defaults to email address if display name is not provided</p>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset id="toCcSettings">
+							<legend>To & Cc</legend>
+							<div class="displaystyle" id="displayToCc">
+								<p></p>
+							</div>
+							<div class="optionfield" id="headerStyleToCc">
+								<div class="optiongroup">
+									<input type="radio" id="toCcOption0" name="headerToCc" value="0"/>
+									<label for="toCcOption0">Name & Email Address</label>
+								</div>
+								<div class="optiongroup">
+									<input type="radio" id="toCcOption1" name="headerToCc" value="1"/>
+									<label for="toCcOption1">Email Address</label>
+								</div>
+								<div class="optiongroup">
+									<input type="radio" id="toCcOption2" name="headerToCc" value="2"/>
+									<label for="toCcOption2">Name</label>
+									<div class="tooltip">
+										?
+										<p>Defaults to email address if display name is not provided</p>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset id="dateSettings">
+							<legend>Date & Time</legend>
+							<div class="displaystyle" id="displayDate">
+								<p id="displayDateP"></p>
+							</div>
+							<div class="dateTimeInput">
+								&#x1F4C5 &#x1F55C
+								<input type="datetime-local" id="inputDate" step="1"/>
+							</div>
+							<div class="optionfield" id="dateformat">
+								<div class="optiongroup">
+									<label for="dateSelect">Date Format</label>
+									<select id="dateSelect" name="datestyle" class="selectBtn">
+										<option value="0">E R H</option>
+										<option value="1">GMali</option>
+										<option value="2">ISO 8601</option>
+										<option value="3">User-defined</option>
+									</select>
+								</div>
+							</div>
+							<div class="customInputText" id="customDate">
+								<input type="text" id="customDateInput"/>
+								<input type="button" id="customDateBtn" value="&#10004"/>
+							</div>
+							<div class="optionfield" id="headerStyleDate">
+								<div class="optiongroup">
+									<input type="radio" id="tz0" name="timezoneSelect" value="0"/>
+									<label for="tz0">Local timezone</label>
+									<input type="search" id="timezoneInput" list="timezoneList" class="customInputText" autocomplete="on" maxlength="30"/>
+								</div>
+								<div class="optiongroup">
+									<input type="radio" id="tz1" name="timezoneSelect" value="1"/>
+									<label for="tz1">UTC</label>
+								</div>
+								<br/>
+								<div class="optiongroup spacedCheckbox">
+									<input type="checkbox" id="hour24" name="hr24"/>
+									<label for="hour24">24 hour format</label>
+									<div class="tooltip">
+										?
+										<p>Does not affect user-defined date format</p>
+									</div>
+								</div>
+								<div class="optiongroup" style="margin: 0.4em 0 0 0;">
+									<p style="margin-top: 0.2em">Abbreviate:</p>
+									<div style="margin-left: 1em;">
+										<input type="checkbox" id="shortWeekday" name="shortDayFormat"/>
+										<label class="spacedLabel" for="shortWeekday">weekday</label>
+									</div>
+									<div style="margin-left: 1em;">
+										<input type="checkbox" id="shortMonth" name="shortMonthFormat"/>
+										<label for="shortMonth" class="spacedLabel">month</label>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+					<div class="panelColumn">
+						<fieldset id="fieldOrderSettings">
+							<legend>Header Fields Ordering</legend>
+							<p style="margin-top: 0">Drag and drop to change ordering<br/>Double-click to change field name</p>
+							<ul id="headersFieldOrdering"></ul>
+						</fieldset>
+						<fieldset class="cosmetics">
+							<legend>Cosmetic Styling</legend>
+							<div class="optionfield" id="fontformat">
+								<div class="optiongroup">
+									<label for="fontSelector">Font</label>
+									<select id="fontSelector" name="fontface" class="selectBtn">
+										<option value=0>Monospace</option>
+										<option value=1>Serif</option>
+										<option value=2>Sans serif</option>
+										<option value=3>Cursive</option>
+										<option value=4>System</option>
+										<option value=5>User-defined</option>
+									</select>
+								</div>
+								<div class="customInputText invisible" id="customFont">
+									<input type="text" id="customFontTextInput"/>
+									<input type="button" id="customFontBtn" value="&#10004"/>
+								</div>
+							</div>
+							<div class="optionfield" id="fontsize">
+								<div class="optiongroup">
+									<label for="fontSizeSelect">Font Size</label>
+									<input type="range" min="7" max="26" step="1" id="fontSizeSelect">
+									<input type="text" id="rangeVal" value="" maxlength="2" size="2" readonly>
+								</div>
+							</div>
+							<div class="optionfield" id="fontcolor">
+								<div class="optiongroup">
+									<label for="fontColorSelect">Font Color</label>
+									<input type="color" id="fontColorSelect" class="colorSelect"/>
+								</div>
+							</div>
+							<div class="optionfield spacedCheckbox">
+								<input type="checkbox" id="boldFieldNames"/>
+								<label for="boldFieldNames">Bold field names</label>
+							</div>
+							<div class="optionfield" id="linewidth">
+								<div class="optiongroup">
+									<label for="lineSeparatorWidth">Separator Line Width</label>
+									<input type="number" id="lineSeparatorWidth" size="2" min="1" max="26"/>
+									<div class="optiongroup spacedCheckbox">
+										<input type="checkbox" id="noLine"/>
+										<label for="noLine">Remove separator line</label>
+									</div>
+								</div>
+							</div>
+							<div class="optionfield" id="linecolor">
+								<div class="optiongroup">
+									<label for="lineColorSelect">Separator Line Color</label>
+									<input type="color" id="lineColorSelect" class="colorSelect"/>
+								</div>
+							</div>
+							<div class="optionfield" id="linestyle">
+								<div class="optiongroup">
+									<label for="lineStyleSelect">Separator Line Style</label>
+									<select id="lineStyleSelect">
+										<option value="solid">Solid</option>
+										<option value="dashed">Dashed</option>
+										<option value="dotted">Dotted</option>
+										<option value="double">Double</option>
+										<option value="groove">Groove</option>
+										<option value="ridge">Ridge</option>
+									</select>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div class="savediv">
+					<form>
+						<button type="button" id="saveBtn">Save</button>
+						<button type="button" id="cancelBtn">Cancel</button>
+						<!-- when Reset is hit, open prompt to confirm reset by user -->
+						<!-- <button type="button">Close</button> -->
+						<!-- when Close is hit, close options window -->
+					</form>
+				</div>
+			</div>
+			<input id="tab2" name="tabs" type="radio"/>
+			<label class="panellabel" for="tab2">Credits & Help</label>
+			<div class="panel">
+				<div class="credits">
+					<p><strong>Enhanced Reply Headers</strong><br/>v1.0<br/>©2023 docgunthrop</p>
+				</div>
+				<div class="credits">
+					<button id="reportIssue" title="Click to go to Github page to post an issue">Report Issue</button>
+					<button id="gotoExtPage" title="Click to go to Thunderbird Extension page for additional details">Extension Page</button>
+					<button id="resetSettings" title="Click to reset settings to default (same as fresh install)">Reset Settings</button>
+				</div>
+				<hr id="creditsHR"/>
+				<div class="credits">
+					<p><strong>Syntax for Custom Date (user-defined)</strong></p>
+					<table id="dateSyntaxTable">
+						<thead>
+							<tr>
+								<th>Category</th>
+								<th>Key</th>
+								<th>Value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Day of the Month</td>
+								<td>d</td>
+								<td>2 digits ("01" to "31")</td>
+							</tr>
+							<tr>
+								<td>Weekday</td>
+								<td>D</td>
+								<td>text ("Friday")</td>
+							</tr>
+							<tr>
+								<td rowspan="2" class="cellOneChoice">Month</td>
+								<td>m</td>
+								<td>numeric ("01" to "12")</td>
+							</tr>
+							<tr>
+								<td>M</td>
+								<td>text ("January")</td>
+							</tr>
+							<tr>
+								<td rowspan="2" class="cellOneChoice">Year</td>
+								<td>y</td>
+								<td>last 2 digits ("22")</td>
+							</tr>
+							<tr>
+								<td>Y</td>
+								<td>full 4 digits ("2022")</td>
+							</tr>
+							<tr>
+								<td rowspan="2">Time</td>
+								<td>i</td>
+								<td>minutes ("00" to "59")</td>
+							</tr>
+							<tr>
+								<td>s</td>
+								<td>seconds ("00" to "59")</td>
+							</tr>
+							<tr>
+								<td rowspan="2" class="cellOneChoice">Hour Format</td>
+								<td>H</td>
+								<td>24-hour format ("00" to "23")</td>
+							</tr>
+							<tr>
+								<td>h</td>
+								<td>12-hour format ("01" to "12")</td>
+							</tr>
+							<tr>
+								<td rowspan="2" class="cellOneChoice">AM/PM</td>
+								<td>A</td>
+								<td>uppercase ("AM" / "PM")</td>
+							</tr>
+							<tr>
+								<td>a</td>
+								<td>lowercase ("am" / "pm")</td>
+							</tr>
+							<tr>
+								<td rowspan="3" class="cellOneChoice">Timezone</td>
+								<td>z</td>
+								<td>short ("PDT")</td>
+							</tr>
+							<tr>
+								<td>Z</td>
+								<td>long ("Pacific Daylight Time")</td>
+							</tr>
+							<tr>
+								<td>t</td>
+								<td>offset ("GMT-07:00")</td>
+							</tr>
+						</tbody>
+					</table>
+					<ul id="customDateNotes">
+						<li>Wrap all keys with "%" (e.g. <code>%Y%</code> for year)</li>
+						<li>Keys can be followed by an integer that denotes the length of the value (e.g. <code>%D3%</code> for Friday returns "Fri")</li>
+						<li>When there is no integer appended to the key, the value defaults to its full length</li>
+						<li>For keys <b>d</b>, <b>m</b>, and <b>h</b>: setting integer to "1" (example: <code>%m1%</code>) results in the numeric value without leading zeroes</li>
+						<li>Categories highlighted in <span style="background: #ddf7ff;">light-blue</span> are only allowed one option (e.g. for "Month", either <code>%m%</code> or <code>%M%</code> can be used, but not both)</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="options.js" type="module"></script>
+	</body>
+</html>

@@ -1,0 +1,350 @@
+body {
+	background: #000;
+	box-sizing: border-box;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	max-width: 50rem;
+	margin: 0;
+	font-size: 13px;
+}
+
+code {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 1.2em;
+	background: #666;
+	padding: 0 3px;
+	border-radius: 15%;
+	color: #fff;
+}
+
+.tooltip {
+	background: #00000050;
+	color: #f8ebdc;
+	border-radius: 50%;
+	font-weight: bold;
+	text-align: center;
+	width: 12px;
+	height: 12px;
+	line-height: 12px;
+	padding: 2px;
+}
+
+.tooltip:hover {
+	cursor: default;
+}
+
+.tooltip p {
+	color: #000;
+	background: #f5e3bf;
+	display: none;
+	width: 240px;
+	font-weight: normal;
+	padding: 4px;
+	border-radius: 4px;
+	border: 1px solid #000;
+}
+
+.tooltip:hover p {
+	display: inline-block;
+	position: relative;
+	top: -25px;
+	left: 16px;
+}
+
+.optionstabs {
+	display: flex;
+	flex-wrap: wrap;
+	border: solid 2px #000;
+}
+
+.panellabel {
+	order: 1;
+	display: block;
+	padding: 0.5% 5px;
+	cursor: pointer;
+	font-weight: bold;
+	border: solid 2px #000;
+	flex: 1;
+	background: #c4bba9;
+	text-align: center;
+}
+
+#settingsWrapper {
+	display: inline-flex;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.panel {
+	order: 99;
+	flex-grow: 1;
+	width: 100%;
+	display: none;
+	padding: 0.8rem;
+	background: #f8ebdc;
+	border: solid 2px #000;
+	border-top: none;
+	border-bottom: none;
+}
+
+.panelColumn {
+	width: 50%;
+}
+
+#headerDisplayField {
+	margin: 10px 20px 22px 20px;
+	background: #fff;
+	border: solid 1px #999;
+	padding: 6px 12px;
+	height: 7rem;
+	/* min-height: 6rem; */
+	/* max-height: 8rem; */
+	overflow-inline: hidden;
+}
+
+.optionstabs input[type="radio"] {
+	display: none;
+}
+
+.optionstabs input[type="radio"]:checked + label {
+	border: solid 2px #000;
+	border-bottom: solid 2px #f8ebdc;
+	background: #f8ebdc;
+}
+
+.optionstabs input[type="radio"]:checked + label + .panel {
+	display: block;
+}
+
+.optiongroup {
+	display: flex;
+	align-items: center;
+}
+
+.optionfield input[type="radio"] {
+	display: block;
+}
+
+.optionfield label {
+	border: none;
+	font-weight: normal;
+	padding: 3px;
+}
+
+.optionfield input[type="radio"]:checked + label {
+	border: none;
+}
+
+#fontformat, #linewidth {
+	display: inline-flex;
+}
+
+.customInputText {
+	margin-left: 4px;
+	display: inherit;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.customInputText input[type="button"] {
+	margin-left: 2px;
+}
+
+.displaystyle p {
+	margin: 4px auto;
+	background: #fff;
+	border: solid 1px #ddd;
+	padding: 2px 0px;
+	text-align: center;
+	font-family: monospace;
+	font-size: 0.8rem;
+}
+
+.spacedCheckbox {
+	margin-top: 0.4rem;
+}
+
+.selectBtn {
+	margin: 0 0.5em;
+}
+
+#inputDate {
+	margin: 0.4rem 1.2rem 0.6rem 0.2rem;
+}
+
+#customDate {
+	margin: 0.5rem;
+}
+
+#customDate input[type="text"] {
+	width: 85%;
+}
+
+.cosmetics label {
+	margin-right: 8px;
+}
+
+.cosmetics .optionfield {
+	margin: 6px auto;
+}
+
+#rangeVal {
+	margin-left: 1rem;
+}
+
+.colorSelect {
+	max-width: 36px;
+	max-height: 24px;
+	border: none;
+	padding: 2px;
+}
+
+.credits {
+	text-align: center;
+}
+
+.credits button {
+	margin: 0 10px;
+}
+
+#dateSyntaxTable {
+	margin: 20px auto;
+	border-collapse: collapse;
+	background: #ccc;
+	text-align: left;
+	max-width: 600px;
+	height: 100%;
+}
+
+#dateSyntaxTable th {
+	background: #eee;
+	text-align: center;
+	border: 1px solid #888;
+	padding: 3px 12px;
+}
+
+#dateSyntaxTable td {
+	padding: 3px 12px;
+	border: 1px solid #888;
+	background: #fff;
+}
+
+#dateSyntaxTable td:nth-last-child(2) {
+	text-align: center;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.cellOneChoice {
+	background: #ddf7ff !important;
+}
+
+#customDateNotes {
+	text-align: left;
+	background: #ffffffaa;
+	border-radius: 0.5em;
+	padding: 10px 10px 10px 20px;
+}
+
+#customDateNotes li {
+	margin: 4px 0;
+}
+
+#creditsHR {
+	background: #000;/* change to gradient left-to-right */
+	margin: 40px 2%;
+}
+
+.savediv {
+	padding: 1rem;
+}
+
+.savediv form {
+	text-align: center;
+}
+
+.savediv button {
+	margin: 0 1rem;
+	width: 5rem;
+	height: 2rem;
+	font-weight: 500;
+}
+
+#saveBtn {
+	background-color: #9f9;
+}
+
+#cancelBtn {
+	background-color: #f99;
+}
+
+#headersFieldOrdering {
+	padding: 0.5rem;
+	align-content: center;
+	display: block;
+}
+
+#headersFieldOrdering textarea {
+	resize: none;
+	/* height: 100%; */
+}
+
+/* #headersFieldOrdering li {
+	display: list-item;
+	list-style-position: inside;
+} */
+
+.dragli {
+	font-family: monospace;
+	/* list-style-type: "\2714"; */
+	list-style-type: none;
+	border: solid 1px #000;
+	padding: 0.2rem;
+	background: #ddd;
+	margin: 0 12px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.dragli p {
+	margin: 0 5px;
+}
+
+.dragli button {
+	font-family: monospace;
+	margin: 0;
+}
+
+.removedli {
+	background: #777 !important;
+	color: #fff !important;
+	/* list-style-type: "\274C"; */
+}
+
+.droppable:-moz-drag-over {
+	background: #fff;
+}
+
+
+
+/* .grabbing:hover {
+	cursor: grabbing !important;
+} */
+
+/* cursor: grabbing;
+cursor: not-allowed; */
+
+/* @media (max-width: 45em) {
+	.optionstabs .panel,
+	.optionstabs label {
+		order: initial;
+	}
+	.optionstabs label {
+		width: 100%;
+		margin-right:0;
+		margin-top: 0.2rem;
+	}
+} */
